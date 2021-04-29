@@ -1,0 +1,27 @@
+prepend config
+	include config.pug
+
+doctype html
+html#js-root(lang=lang, dir="ltr")
+	head
+		meta(charset="utf-8")
+		block metatags
+			meta(name="description" content=myDescr)
+			meta(http-equiv="X-UA-Compatible", content="IE=edge")
+			meta(name="viewport", content="width=device-width, initial-scale=1.0")
+			// meta(name="msapplication-config", content="browserconfig.xml")
+		block links
+			// link(rel="canonical", href=domain+canon)
+			// link(rel="icon", href="favicon.png")
+			// link(rel="apple-touch-icon", href="favicon-ios.svg")
+			// link(rel="preload", href="src/fonts/CeraPro-Bold.woff", as="font", type="font/woff", crossorigin)
+			// link(rel="preload", href="src/fonts/CeraPro-Light.woff", as="font", type="font/woff", crossorigin)
+			// link(rel="preload", href="src/fonts/CeraPro-Medium.woff", as="font", type="font/woff", crossorigin)
+			// link(rel="preload", href="src/fonts/CeraPro-Regular.woff", as="font", type="font/woff", crossorigin)
+		title Virna | #{myTitle}
+	body#js-bodyDoc(class=page)
+		.container#js-container
+			block content-1
+			block content-2
+			noscript You need to enable JavaScript to run this app.
+		// link(rel="preload stylesheet", href=cssPath + "/style.min.css", as="style", onload="this.onload=null;this.rel='stylesheet'")

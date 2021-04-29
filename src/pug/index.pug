@@ -1,0 +1,18 @@
+extends includes/template.pug
+
+block content-1
+	section.promo.b-lazy#js-promo
+	section.collection#js-collection
+	section.production#js-production
+	section.catalog#js-catalog
+	section.target#js-target
+	section.fashion#js-fashion
+	
+block content-2
+	include includes/_offer.pug
+	
+append config
+	- myTitle = "Главная страница"
+	- myDescr = "Virna. Бренд женской одежды"
+	- canon = "index.html"
+	- page = ""

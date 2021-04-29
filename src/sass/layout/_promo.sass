@@ -1,0 +1,64 @@
+.promo
+	background: url("../img/promo/bg-360.jpg") no-repeat center/auto 100%, linear-gradient(to left, #fff 40%, #F0EFED)
+	height: 457px
+	padding: 30px 15px
+	position: relative
+	
+	&__header
+		+flex
+		align-items: center
+		flex-direction: row
+		justify-content: space-between
+		
+	&__title
+		font: 42px/3rem 'Cera-Pro-Bold'
+		letter-spacing: .02em
+		margin: 60px 0 0 0
+		
+	&__income
+		display: block
+		font: 13px/.93rem 'Cera-Pro-Medium'
+		letter-spacing: .04em
+		margin: 88px 0 0 10px
+		transform: rotate(-90deg)
+		text-align: right
+		transform-origin: left center
+		width: fit-content
+		
+	&__aside
+		+flex
+		+pos-abs
+		flex-direction: row
+		font: 14px/1.29rem 'Cera-Pro-Regular'
+		left: auto
+		right: 23px
+		top: 63%
+		transform: rotate(90deg)
+		transform-origin: right center
+		width: fit-content
+		
+	&__year
+		font-family: 'Cera-Pro-Medium'
+		margin-left: 41px
+		
+	&__control
+		+flex
+		flex-direction: row
+		margin-top: auto
+		
+	&__language
+		appearance: none
+		background: transparent url("../icons/promo/arrow-language.svg") no-repeat right center
+		border: 1px solid transparent
+		font: 14px/1.29rem 'Cera-Pro-Regular'
+		margin-left: auto
+		padding-right: 6px
+		
+	&__choice
+		background: lightgray
+		font: 14px/1.29rem 'Cera-Pro-Regular'
+		height: 60px
+		width: 60px
+		
+.logo, .bonum
+	display: block

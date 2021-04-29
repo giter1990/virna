@@ -1,0 +1,52 @@
+{
+  "name": "virna-case",
+  "version": "1.0.0",
+  "description": "developing virna project with react",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "build": "webpack --mode development",
+  "loader": "pug",
+  "author": "Jenia Ivanenko",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/cli": "^7.1.0",
+    "@babel/core": "^7.1.0",
+    "@babel/plugin-proposal-class-properties": "^7.13.0",
+    "@babel/plugin-syntax-dynamic-import": "^7.8.3",
+    "@babel/preset-env": "^7.1.0",
+    "@babel/preset-react": "^7.0.0",
+    "apply-loader": "^2.0.0",
+    "babel-loader": "^8.0.2",
+    "clean-webpack-plugin": "^4.0.0-alpha.0",
+    "css-loader": "^1.0.0",
+    "file-loader": "^6.2.0",
+    "html-loader": "^0.5.5",
+    "html-minifier-terser": "^5.1.1",
+    "html-webpack-hot-plugin": "^1.2.2",
+    "html-webpack-inline-source-plugin": "0.0.10",
+    "html-webpack-plugin": "^4.5.0",
+    "lodash.template": "^4.5.0",
+    "mini-css-extract-plugin": "^1.4.1",
+    "normalize.css": "^8.0.1",
+    "pug": "^3.0.2",
+    "pug-html-loader": "^1.1.5",
+    "pug-loader": "^2.4.0",
+    "request": "^2.79.0",
+    "sass": "^1.32.8",
+    "sass-loader": "^10.1.1",
+    "style-loader": "^0.23.0",
+    "svg-sprite-loader": "^6.0.5",
+    "svg-sprite-webpack-plugin": "^1.0.4",
+    "webpack": "^4.46.0",
+    "webpack-cli": "^3.1.1",
+    "webpack-dev-server": "^3.11.0",
+    "webpack-mild-compile": "^3.3.1"
+  },
+  "dependencies": {
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-hot-loader": "^4.13.0"
+  }
+}

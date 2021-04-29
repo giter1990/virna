@@ -1,0 +1,27 @@
+.App {
+	color: brown;
+	font-family: Arial, Helvetica, sans-serif;
+	margin: 1rem;
+}
+
+.custom {
+	text-decoration: line-through;
+}
+
+.orange {
+	background: orange;
+}
+
+.blue {
+	background: blue;
+	color: white;
+}
+
+.form-data label {
+	display: block;
+	margin: 10px 0;
+}
+
+.form-data input, .form-data select {
+	margin-left: 5px;
+}
