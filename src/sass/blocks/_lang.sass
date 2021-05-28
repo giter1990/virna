@@ -1,0 +1,109 @@
+.language
+	cursor: pointer
+	font: 14px/1.29rem 'Cera-Pro-Regular'
+	position: relative
+	width: 24px
+	
+	&_promo
+		margin-left: auto
+	
+	&_header
+		display: none
+	
+	&_screen
+		margin: 0
+	
+	&__pseudo, &__item
+		height: 20px
+		padding-right: 10px
+	
+	&__pseudo
+		position: relative
+		transition: .5s
+		z-index: 1
+			
+	&__arrow
+		+pos-abs
+		background: url("../icons/language/arrow-language.svg") no-repeat center center
+		color: transparent
+		display: block
+		height: 5px
+		left: auto
+		overflow: hidden
+		right: 0
+		top: 50%
+		transform: translateY(-50%) rotate(0deg)
+		width: 9px
+	
+	&__list
+		+pos-abs
+		background: #f0efed
+		cursor: pointer
+		display: none
+		list-style: none
+		margin: 0
+		opacity: 0
+		padding: 0
+		top: 20px
+		width: 100%
+		z-index: 1
+		
+		&_visible
+			display: block
+			
+	&__item
+		transition: .5s
+		
+		&:hover
+			color: $secondary-color
+			
+		&:focus
+			outline: 2px solid $secondary-color
+			
+		&:active
+			color: #d7969e
+			
+	&__select
+		+pos-abs
+		appearance: none
+		background: transparent
+		border: 1px solid transparent
+		color: transparent
+		z-index: -1
+		
+		&:disabled
+			background-image: url("../icons/language/arrow-language-disabled.svg")
+			color: #b7b7b7
+			
+		&:hover
+			background-image: url("../icons/language/arrow-language-hover.svg")
+			color: $secondary-color
+			
+		&:focus
+			outline: 2px solid $secondary-color
+			
+		&:active
+			background-image: url("../icons/language/arrow-language-active.svg")
+			color: #d7969e
+			
+@keyframes rotate-open
+	from
+		top: 40%
+		transform: translateY(-40%)
+		transform: rotate(0deg)
+		
+	to
+		top: 40%
+		transform: translateY(-40%)
+		transform: rotate(180deg)
+		
+@keyframes rotate-close
+	from
+		top: 40%
+		transform: translateY(-40%)
+		transform: rotate(180deg)
+		
+	to
+		top: 40%
+		transform: translateY(-40%)
+		transform: rotate(0deg)

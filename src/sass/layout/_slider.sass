@@ -1,0 +1,76 @@
+.slider
+	&__wrapper
+		+flex
+		
+	&__picture
+		display: none
+		
+	&__carousel
+		+flex
+		background: url("../img/main/slider/collection-360-768.jpg") no-repeat center/auto 100%, linear-gradient(to bottom, #e7e0d8, #f1eae2, #e5ded8)
+		margin-bottom: 41px
+		min-height: 650px
+		padding: 0 20px
+		
+	&__control
+		margin: auto 0 65px
+		
+	&__title
+		font: 40px/3.29rem 'Cera-Pro-Bold'
+		margin: 0
+		text-transform: uppercase
+		
+	&__absence
+		display: block
+		font: 20px/1.71rem 'Cera-Pro-Bold'
+		margin-top: 20px
+		text-transform: lowercase
+		
+	&__transition
+		+flex
+		flex-direction: row
+		justify-content: space-between
+		width: 130px
+		
+	&__arrow
+		&:nth-of-type(2)
+			transform: scale(-1, 1)
+			
+		&:hover
+			background-image: url("../icons/slider/arrow-hover.svg")
+			
+		&:focus
+			outline: 2px solid $secondary-color
+			
+		&:active
+			background-image: url("../icons/slider/arrow-active.svg")
+		
+	&__info
+		background: $btn-color url("../img/main/notice.jpg") no-repeat 15px center
+		box-shadow: 0 9px 10px 0 #ededed
+		margin-top: 90px
+		padding: 15px 15px 15px 75px
+		width: 90%
+		
+	&__notice
+		font: 13px/1.21rem 'Cera-Pro-Bold'
+		text-transform: uppercase
+		
+	&__feature
+		+flex
+		align-items: flex-end
+		flex-direction: row
+		font: 11px/1.07rem 'Cera-Pro-Medium'
+		text-transform: lowercase
+		
+	&__mini
+		margin-left: auto
+		
+		&:hover
+			background-image: url("../icons/slider/arrow-notice-hover.svg")
+			
+		&:focus
+			outline: 2px solid $secondary-color
+			
+		&:active
+			background-image: url("../icons/slider/arrow-notice-active.svg")

@@ -1,0 +1,31 @@
+.ux
+	+flex
+	+pos-abs
+	flex-direction: row
+	justify-content: space-between
+	left: 15px
+	right: 15px
+	top: 15px
+	z-index: 1
+	
+	&__purchase, &__like
+		cursor: pointer
+	
+	&__purchase
+		background: $secondary-color
+		border: none
+		color: $btn-color
+		font: 12px/1.07rem 'Cera-Pro-Light'
+		height: 25px
+		letter-spacing: .04em
+		text-transform: uppercase
+		width: 60px
+		
+		&_new
+			background: $btn-color
+			color: $main-color
+			font-family: 'Cera-Pro-Regular'
+			
+	&__like
+		height: 24px
+		width: 24px

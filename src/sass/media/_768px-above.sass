@@ -1,0 +1,181 @@
+@media (min-width: 768px)
+	.logo
+		&_collection
+			display: none
+			
+	.interact
+		&__item
+			&_header
+				&:nth-of-type(2)
+					margin: 0 30px
+					
+		&_promo
+			margin-left: 60px
+			
+	.btn
+		font-size: 14px
+		height: 39.42px
+		line-height: 1.29rem
+		margin: 35px 0 65.6px
+		width: 140px
+		
+	.title
+		margin: 0 0 -17px 99px
+		
+		&__post
+			margin: 0 0 0 120px
+			
+	.vert
+		&_production
+			+pos-abs
+			bottom: 23px
+			font-size: 14px
+			left: 42px
+			line-height: 1.29rem
+			
+	.menu
+		&_header
+			.menu__signif
+				display: block
+				font: 13px/1.14rem 'Cera-Pro-Medium'
+				margin-right: 22px
+				text-transform: uppercase
+				
+	.promo
+		background-image: url("../img/promo/bg-768.jpg")
+		padding: 30px 39px
+		
+		&__aside
+			font-size: 16px
+			line-height: 1.43rem
+			margin-right: 7px
+			
+		&__year
+			margin-left: 30px
+			
+	.slider
+		padding: 25px 39px 0
+		
+		&__top
+			margin-bottom: 50px
+			padding: 0
+			
+		&__like, &__shopping, &__face
+			display: none
+			
+		&__wrapper
+			flex-direction: row
+			
+		&__picture
+			display: block
+			height: fit-content
+			
+		&__carousel
+			background: none
+			margin: 0 0 0 90px
+			min-height: auto
+			padding: 0
+			
+		&__control
+			margin: 32px 0 0 0
+			
+		&__title
+			font-size: 32px
+			line-height: 2.86rem
+			
+		&__absence
+			font-size: 16px
+			line-height: 1.43rem
+			margin-top: 50px
+			padding-left: 60px
+			
+		&__transition
+			width: 270px
+			
+		&__info
+			display: none
+			
+		&__chapter
+			&:nth-of-type(1)
+				margin: 0
+				
+			&:nth-of-type(2)
+				margin: 0 45px
+				
+			&:nth-of-type(3)
+				display: block
+				
+	.production
+		padding-bottom: 50px
+		
+		&__conditions
+			align-items: center
+			flex-direction: row
+			justify-content: flex-start
+			margin: 67px 0
+			padding-left: 101px
+			
+		&__discount
+			font-size: 14px
+			letter-spacing: .04em
+			line-height: 1.29
+			margin: 0 50px 0 0
+			
+		&__service
+			display: flex
+			
+		&__feature
+			background: url("../icons/checkmark/checkmark.svg") no-repeat left center
+			font: 12px/1.43rem 'Cera-Pro-Medium'
+			letter-spacing: 0.03em
+			padding-left: 23px
+			text-transform: lowercase
+			
+			&:nth-of-type(2)
+				margin: 15px 0
+				
+		&__picture
+			margin-left: -299px
+				
+	.catalog
+		padding: 0 39px
+		
+		&__size
+			display: flex
+		
+		&__products
+			grid-template-columns: repeat(3, 1fr)
+			
+			&_tile
+				grid-template-columns: repeat(2, 1fr)
+				grid-gap: 50px 30px
+				
+		&__card
+			&_tile
+				justify-content: space-around
+				
+				&:nth-of-type(odd)
+					padding-top: 220px
+					
+				&:nth-of-type(even)
+					.catalog
+						&__landmark
+							padding-bottom: 340px
+							
+						&__arrow
+							transform: rotate(90deg) translateY(-8px)
+				
+				&:nth-of-type(2), &:nth-of-type(3)
+					.catalog
+						&__landmark
+							order: 1
+				
+				&:nth-of-type(3)
+					order: 3
+					
+				&:nth-of-type(4)
+					order: 4
+			
+	@media (-webkit-min-device-pixel-ratio: 2), (min--moz-device-pixel-ratio: 2), (-o-min-device-pixel-ratio: 2)
+		.promo
+			background-image: url("../img/promo/bg-768-2x.jpg")

@@ -1,0 +1,203 @@
+.catalog
+	margin-top: 45px
+	padding: 0 15px
+		
+	&__path, &__represent, &__sorting
+		padding: 0 20px
+	
+	&__path
+		+flex
+		color: #c4c4c4
+		flex-direction: row
+		font: 9.5px/.96rem 'Cera-Pro-Regular'
+		
+	&__chapter
+		cursor: pointer
+		display: block
+		
+		&:nth-of-type(2)
+			color: #565656
+			
+	&__represent
+		+flex
+		flex-direction: row
+		justify-content: space-between
+		margin: 25px 0 20px
+		
+	&__all
+		font: 13px/.96rem 'Cera-Pro-Regular'
+		-webkit-text-stroke-width: .3px
+		text-transform: uppercase
+		
+	&__view
+		+flex
+		flex-direction: row
+		
+	&__rect
+		border: 1px solid #a8a8a8
+		color: transparent
+		cursor: pointer
+		height: 12.5px
+		position: relative
+		width: 12.5px
+		
+		&:nth-of-type(2)
+			&:before, &:after
+				+pos-abs
+				background: #a8a8a8
+				
+			&:before
+				height: 100%
+				left: 50%
+				transform: translateX(-50%)
+				width: .5px
+				
+			&:after
+				height: 1px
+				top: 50%
+				transform: translateY(-50%)
+				width: 100%
+			
+		&_active
+			border-color: $secondary-color
+				
+			&:nth-of-type(2)
+				&:before, &:after
+					background-color: $secondary-color
+				
+		&:nth-of-type(1)
+			margin-right: 4.5px
+				
+	&__sorting
+		+flex
+		flex-direction: row
+		font: 10px/1rem 'Cera-Pro-Medium'
+		justify-content: space-between
+		margin-bottom: 28px
+		text-transform: uppercase
+		
+	&__categories, &__filters
+		background: url("../icons/language/arrow-language.svg") no-repeat right center
+		cursor: pointer
+		padding-right: 10px
+		
+	&__size
+		+flex
+		flex-direction: row
+		display: none
+		list-style: none
+		margin: 0 0 -15px 0
+		padding: 0
+		
+	&__item
+		font: 13px/1.14rem 'Cera-Pro-Medium'
+		letter-spacing: 0.04em
+		margin-right: 50px
+		
+	&__products
+		display: grid
+		
+		&_tile
+			grid-gap: 30px 0
+			grid-template-columns: 1fr
+			
+		&_grid
+			grid-gap: 22px 17.5px
+			grid-template-columns: repeat(2, 1fr)
+		
+	&__card
+		+flex
+		flex-direction: row
+		
+		&:nth-of-type(1)
+			.scope__square
+				&:nth-of-type(1)
+					background: #a64d79
+					
+				&:nth-of-type(2)
+					background: #22402a
+					
+				&:nth-of-type(3)
+					background: #295494
+				
+				&:nth-of-type(4)
+					background:	#f8dadd			
+				
+		&:nth-of-type(2)
+			.scope
+				&__square
+					&:nth-of-type(1)
+						background: #000
+					
+					&:nth-of-type(2)
+						background:	#000f95
+
+				&__price
+					color: $main-color
+					
+		&:nth-of-type(3)
+			.scope__square
+				&:nth-of-type(1)
+					background: #808080
+				
+				&:nth-of-type(2)
+					background:	#64391a
+					
+		&:nth-of-type(4)
+			.scope__square
+				&:nth-of-type(1)
+					background: #8B4513
+				
+				&:nth-of-type(2)
+					background:	#8B2252
+					
+		&_tile
+			justify-content: space-between
+			
+			&:nth-of-type(2), &:nth-of-type(3)
+				.catalog
+					&__landmark
+						order: 2
+					
+					&__body
+						order: 1
+			
+			&:nth-of-type(3)
+				order: 4
+				
+			&:nth-of-type(4)
+				order: 3
+				
+			.catalog
+				&__landmark
+					display: flex
+					
+				&__body
+					width: 280px
+					
+				&__img
+					height: 385px
+					
+			.scope
+				&__ending
+					display: inline
+					
+		&_grid
+			.catalog
+				&__picture, &__img
+					height: 100%
+					
+	&__landmark
+		+flex
+		display: none
+		padding-bottom: 110px
+		
+	&__arrow
+		margin-top: auto
+		
+	&__body, &__img
+		position: relative
+		width: 100%
+		
+	&__body
+		+flex

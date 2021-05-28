@@ -1,5 +1,6 @@
 .production
-	padding-right: 15px
+	&_catalog
+		padding-top: 30px
 	
 	&__wrapper
 		+flex
@@ -10,11 +11,12 @@
 		+flex
 		justify-content: space-between
 		background: $scope-color
-		flex: 1
+		flex: 0 0 100%
 		letter-spacing: .04em
 		margin: 23px 0
 		padding: 15px
 		position: relative
+		z-index: 1
 		
 	&__discount
 		+flex
@@ -24,9 +26,28 @@
 	&__arrow
 		display: block
 		margin: 15px 0
+		transform: scale(-1, 1)
+		
+		&:hover
+			background-image: url("../icons/slider/arrow-hover.svg")
+			
+		&:focus
+			outline: 2px solid $secondary-color
+			
+		&:active
+			background-image: url("../icons/slider/arrow-active.svg")
 		
 	&__scale
 		text-transform: lowercase
 		
 	&__service
+		+flex
 		display: none
+		list-style: none
+		margin: 0
+		padding: 0
+		
+	&__picture
+		flex: 1 0 auto
+		margin-left: -215px
+		z-index: 2

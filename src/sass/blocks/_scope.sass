@@ -1,0 +1,45 @@
+.scope
+	margin-top: 25px
+	
+	&__color
+		+flex
+		flex-direction: row
+		justify-content: center
+		list-style: none
+		margin: 0
+		padding: 0
+		
+	&__square
+		color: transparent
+		cursor: pointer
+		height: 10px
+		margin: 0 6px
+		width: 10px
+		
+	&__name, &__price-post
+		font: 12px/1.07rem 'Cera-Pro-Regular'
+	
+	&__name
+		letter-spacing: .05em
+		margin: 13px 0 12px
+		text-align: center
+		text-transform: uppercase
+		-webkit-text-stroke-width: 0
+		
+	&__ellipsis
+		display: none
+		
+	&__ending
+		display: none
+		
+	&__price
+		color: $secondary-color
+		font: 14px/1.29rem 'Cera-Pro-Regular'
+		text-align: center
+		
+	&__price-past
+		color: #565656
+		font-size: 11px
+		line-height: 1.07rem
+		margin-left: 10px
+		text-decoration: line-through

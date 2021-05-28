@@ -1,6 +1,50 @@
 .menu
-	background: url("../icons/promo/menu.svg") no-repeat center center/cover
-	color: transparent
-	cursor: pointer
-	height: 20px
-	width: 20px
+	+flex
+	flex-direction: row
+		
+	&__signif
+		display: none
+		
+	&__burger
+		+flex
+		cursor: pointer
+		height: 16px
+		justify-content: space-between
+		transition: .5s
+		width: 20px
+		
+		&_cross
+			margin-right: -3px
+			padding-left: 3px
+			width: 23px
+			
+		&:disabled
+			.menu__line
+				background: #dedcdc
+			
+		&:hover
+			.menu__line
+				background: $secondary-color
+			
+		&:focus
+			outline: 2px solid $secondary-color
+			
+		&:active
+			.menu__line
+				background: #898989
+		
+	&__line
+		background: $main-color
+		color: transparent
+		height: 1px
+		transform-origin: left center
+		width: 100%
+		
+		&_rotate-down
+			transform: rotate(45deg)
+			
+		&_none
+			display: none
+		
+		&_rotate-up
+			transform: rotate(-45deg) translateY(-1.5px)

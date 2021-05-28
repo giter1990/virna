@@ -1,0 +1,45 @@
+.screen
+	+flex
+	+pos-abs
+	background: #fff
+	bottom: 12vh
+	bottom: 70px
+	opacity: 0
+	top: 70px
+	width: 100%
+	
+	&_header
+		bottom: 0
+		height: calc(100vh - 45px)
+		top: 45px
+		
+	&__menu
+		list-style: none
+		margin: 0
+		padding: 0
+		
+	&__item
+		border-bottom: 1px solid lightgray
+		font: 14px/1rem 'Cera-Pro-Regular'
+		padding: 15px 20px
+		text-transform: uppercase
+		
+		&:nth-of-type(3)
+			border: none
+			
+			.screen__link
+				color: $secondary-color
+				+effects-ui
+			
+	&__link
+		+effects-ui			
+		
+	&__footer
+		+flex
+		background: #fbf8f8
+		flex-direction: row
+		justify-content: space-between
+		margin-top: auto
+		padding: 20px
+	
++opacity

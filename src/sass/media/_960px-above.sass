@@ -1,0 +1,115 @@
+@media (min-width: 960px)
+	.logo
+		&__icon
+			height: 13px
+			width: 100px
+			
+		&_header
+			margin-right: 0
+			
+	.bonum
+		&__icon
+			height: 8px
+			width: 55px
+			
+	.menu
+		&__signif
+			margin-right: 62px
+			
+	.interact
+		&__item
+			height: 18px
+			width: 18px
+			
+	.title
+		font-size: 36px
+		line-height: 3.21rem
+		margin: 0 0 -20px 175px
+		
+		&__post
+			margin-left: 160px
+			
+	.vert
+		&_promo
+			font-size: 14px
+			line-height: 1rem
+			margin-top: 15px
+			
+		&_production
+			font-size: 16px
+			line-height: 1.43rem
+			
+	.scope
+		&__price-past
+			font-size: 12px
+			line-height: 1.07rem
+			
+	.promo
+		background-image: url("../img/promo/bg-960.jpg")
+		padding: 30px 95px 31px 98px
+		
+		&__title
+			font-size: 48px
+			line-height: 3.43rem
+		
+		&__aside
+			right: 95px
+			
+	.header
+		&__manage
+			+flex
+			flex-direction: row
+			grid-gap: 0 40px
+			margin: 0 auto
+			
+	.slider
+		padding: 25px 95px 0
+		
+		&__carousel
+			margin-left: 108px
+			
+		&__title
+			font-size: 36px
+			line-height: 3.21rem
+			
+		&__transition
+			width: 290px
+			
+		&__chapter
+			&:nth-of-type(2)
+				margin: 0 65px
+				
+	.production
+		margin-top: 45px
+		
+		&__conditions
+			padding-left: 175px
+			
+		&__picture
+			margin-left: -355px
+			
+	.catalog
+		padding: 0 95px
+		
+		&__path
+			font-size: 10px
+		
+		&__products
+			&_tile
+				grid-row-gap: 45px
+				
+		&__card
+			&_tile
+				&:nth-of-type(odd)
+					padding-top: 190px
+					
+				.catalog
+					&__body
+						width: 320px
+						
+					&__img
+						height: 405px
+			
+	@media (-webkit-min-device-pixel-ratio: 2), (min--moz-device-pixel-ratio: 2), (-o-min-device-pixel-ratio: 2)
+		.promo
+			background-image: url("../img/promo/bg-960-2x.jpg")
