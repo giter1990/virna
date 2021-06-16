@@ -1,6 +1,7 @@
-import { promoControl, header } from "../Pages/Main.js";
-
 export default () => {
+	let promoControl = document.getElementById("js-promo-control"),
+		header = document.getElementById("js-header");
+		
 	function isElementInViewport(elem) {
 		let rect = elem.getBoundingClientRect();
 

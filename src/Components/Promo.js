@@ -1,29 +1,17 @@
 import React, { Component} from "react";
 import { hot } from "react-hot-loader";
-import Blazy from "../../node_modules/blazy/blazy.min.js";
-import Burger from "./Burger.js";
-import Interact from "./Interact.js";
-import Language from "./Language.js";
-import Screen from "./Screen.js";
+import loadable from "@loadable/component";
+
+const Burger = loadable(() => import("./Burger.js")),
+	Interact = loadable(() => import("./Interact.js")),
+	Language = loadable(() => import("./Language.js")),
+	Screen = loadable(() => import("./Screen.js"));
 
 class Promo extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {isScreenShowed: false};
 		this.toggleBurger = this.toggleBurger.bind(this);
-	}
-	
-	componentDidMount() {
-		let bLazy = new Blazy({
-			selector: "img, #js-promo",
-			success: element => {
-				setTimeout(() => {
-					if (/^background.+/i.test(element.getAttribute("style"))) {
-						element.removeAttribute("style");
-					}
-				}, 200);
-			}
-		});
 	}
 	
 	toggleBurger() {
@@ -39,10 +27,10 @@ class Promo extends React.Component {
 				<div className="inner">
 					<header className="promo__header" role="banner">
 						<a className="logo" href="index.html">
-							<img className="logo__icon b-lazy" data-src="./logo.svg" src="./tinytrans.gif" height="16" width="120" alt="Logo" />
+							<img className="logo__icon b-lazy" data-src="./icons/logo.svg" src="./tinytrans.gif" height="16" width="120" alt="Logo" />
 						</a>
 						<a className="bonum" id="js-bonum" href="https://bonum-studio.com/" disabled target="_blank" rel="noopener">
-							<img className="bonum__icon b-lazy" data-src="./bonum.svg" src="./tinytrans.gif" height="7" width="45" alt="Bonum" />
+							<img className="bonum__icon b-lazy" data-src="./icons/bonum.svg" src="./tinytrans.gif" height="7" width="45" alt="Bonum" />
 						</a>
 					</header>
 					<h1 className="promo__title">Ukrainian<br />brand

@@ -1,13 +1,18 @@
 import React, { Component} from "react";
 import { hot } from "react-hot-loader";
 import ReactDOM from "react-dom";
-import Sample from "../Pages/Sample.js";
-import Language from "./Language.js";
-import Phone from "./Phone.js";
+import loadable from "@loadable/component";
+
+const Sample = loadable(() => import("../Pages/Sample.js")),
+	Language = loadable(() => import("./Language.js")),
+	Phone = loadable(() => import("./Phone.js"));
 
 class Screen extends React.Component {
 	constructor(props) {
 		super(props);
+		this.state = {
+			header: document.getElementById("js-header")
+		};
 		this.showCatalog = this.showCatalog.bind(this);
 	}
 	
@@ -26,6 +31,8 @@ class Screen extends React.Component {
 				screen.classList.toggle("screen_header");
 				break;	
 		}
+		
+		document.documentElement.style.overflow = "hidden";
 	}
 	
 	componentWillUnmount() {
@@ -37,10 +44,14 @@ class Screen extends React.Component {
 				promo.classList.toggle("promo_screen");
 				break;	
 		}
+		
+		document.documentElement.style.overflow = "";
 	}
 	
 	showCatalog() {
-		ReactDOM.render(<Sample />, document.getElementById("js-container"));
+		console.log(this.state.header);
+		
+		ReactDOM.render(<Sample value={this.state.header} />, document.getElementById("js-container"));
 	}
 	
 	render() {

@@ -6,7 +6,6 @@ import "normalize.css";
 import Main from "./Pages/Main.js";
 
 import "./sass/style.sass";
-import "../public/style.min.css";
 import "./fonts/CeraPro-Bold.woff";
 import "./fonts/CeraPro-Light.woff";
 import "./fonts/CeraPro-Medium.woff";
@@ -17,8 +16,8 @@ import "../tiles/browserconfig.xml";
 import "../tiles/small.svg";
 import "../tiles/medium.svg";
 import "../tiles/large.svg";
-import "../favicon.png";
-import "../favicon-ios.svg";
+import "../favicon/favicon.png";
+import "../favicon/favicon-ios.svg";
 
 import "./img/promo/bg-360.jpg";
 import "./img/promo/bg-360-2x.jpg";
@@ -33,14 +32,35 @@ import "./img/promo/bg-1440-2x.jpg";
 import "./img/promo/bg-1920.jpg";
 import "./img/promo/bg-1920-2x.jpg";
 
-import "./img/main/slider/collection-360-768.jpg";
-import "./img/main/slider/collection-360-768-2x.jpg";
-import "./img/main/slider/collection-960.jpg";
-import "./img/main/slider/collection-960-2x.jpg";
-import "./img/main/slider/collection-1366-1440.jpg";
-import "./img/main/slider/collection-1366-1440-2x.jpg";
-import "./img/main/slider/collection-1920.jpg";
-import "./img/main/slider/collection-1920-2x.jpg";
+import "./img/main/notice.jpg";
+import "./img/main/notice-2x.jpg";
+
+import "./img/main/slider/novelty-360-768.png";
+import "./img/main/slider/novelty-360-768-2x.png";
+import "./img/main/slider/novelty-960.png";
+import "./img/main/slider/novelty-960-2x.png";
+import "./img/main/slider/novelty-1366-1440.png";
+import "./img/main/slider/novelty-1366-1440-2x.png";
+import "./img/main/slider/novelty-1920.png";
+import "./img/main/slider/novelty-1920-2x.png";
+
+import "./img/main/slider/summer-360-768.png";
+import "./img/main/slider/summer-360-768-2x.png";
+import "./img/main/slider/summer-960.png";
+import "./img/main/slider/summer-960-2x.png";
+import "./img/main/slider/summer-1366-1440.png";
+import "./img/main/slider/summer-1366-1440-2x.png";
+import "./img/main/slider/summer-1920.png";
+import "./img/main/slider/summer-1920-2x.png";
+
+import "./img/main/slider/linen-360-768.png";
+import "./img/main/slider/linen-360-768-2x.png";
+import "./img/main/slider/linen-960.png";
+import "./img/main/slider/linen-960-2x.png";
+import "./img/main/slider/linen-1366-1440.png";
+import "./img/main/slider/linen-1366-1440-2x.png";
+import "./img/main/slider/linen-1920.png";
+import "./img/main/slider/linen-1920-2x.png";
 
 import "./img/main/production-360.jpg";
 import "./img/main/production-360-2x.jpg";
@@ -122,22 +142,22 @@ import "./icons/language/arrow-language-disabled.svg";
 import "./icons/language/arrow-language-hover.svg";
 import "./icons/language/arrow-language-active.svg";
 
-import "./icons/promo/logo.svg";
+import "./icons/promo-img/logo.svg";
 
-import "./icons/promo/bonum.svg";
-import "./icons/promo/bonum-disabled.svg";
-import "./icons/promo/bonum-hover.svg";
-import "./icons/promo/bonum-active.svg";
+import "./icons/promo-img/bonum.svg";
+import "./icons/promo-img/bonum-disabled.svg";
+import "./icons/promo-img/bonum-hover.svg";
+import "./icons/promo-img/bonum-active.svg";
 
-import "./icons/promo/like-promo.svg";
-import "./icons/promo/like-promo-disabled.svg";
-import "./icons/promo/like-promo-hover.svg";
-import "./icons/promo/like-promo-active.svg";
+import "./icons/promo-bg/like-promo.svg";
+import "./icons/promo-bg/like-promo-disabled.svg";
+import "./icons/promo-bg/like-promo-hover.svg";
+import "./icons/promo-bg/like-promo-active.svg";
 
-import "./icons/promo/cart-promo.svg";
-import "./icons/promo/cart-promo-disabled.svg";
-import "./icons/promo/cart-promo-hover.svg";
-import "./icons/promo/cart-promo-active.svg";
+import "./icons/promo-bg/cart-promo.svg";
+import "./icons/promo-bg/cart-promo-disabled.svg";
+import "./icons/promo-bg/cart-promo-hover.svg";
+import "./icons/promo-bg/cart-promo-active.svg";
 
 import "./icons/header/facebook.svg";
 import "./icons/header/facebook-disabled.svg";
@@ -165,8 +185,14 @@ import "./icons/header/face-hover.svg";
 import "./icons/header/face-active.svg";
 
 import "./icons/slider/arrow.svg";
+import "./icons/slider/arrow-disabled.svg";
+import "./icons/slider/arrow-hover.svg";
 import "./icons/slider/arrow-active.svg";
+
 import "./icons/slider/arrow-notice.svg";
+import "./icons/slider/arrow-notice-disabled.svg";
+import "./icons/slider/arrow-notice-hover.svg";
+import "./icons/slider/arrow-notice-active.svg";
 
 import "./icons/catalog/like-catalog.svg";
 import "./icons/catalog/like-catalog-disabled.svg";
@@ -179,18 +205,16 @@ import "./icons/catalog/arrow-catalog-disabled.svg";
 import "./icons/catalog/arrow-catalog-hover.svg";
 import "./icons/catalog/arrow-catalog-active.svg";
 
-import("./js/toggle-lang.js")
-	.then(module => {
-		module.default();
-	});
-
-let bLazy = new Blazy({
-	selector: "img, #js-icon-header, #js-face"
-});	
+window.addEventListener("DOMContentLoaded", () => {
+	import("./js/toggle-lang.js")
+		.then(module => {
+			module.default();
+		});
+});
 
 window.addEventListener("scroll", () => {
 	let bLazy = new Blazy({
-		selector: "#js-icon-header, #js-item-1, #js-face",
+		selector: "img, #js-promo, #js-item-1, #js-arrow-lang-promo, #js-arrow-lang-screen, #js-arrow-lang-header, #js-feature-1, #js-feature-2, #js-feature-3, #js-categories, #js-filters",
 		success: element => {
 			setTimeout(() => {
 				if (/^background.+/i.test(element.getAttribute("style"))) {
@@ -199,9 +223,4 @@ window.addEventListener("scroll", () => {
 			}, 200);
 		}
 	});
-	
-	import("./js/drop-header.js")
-		.then(module => {
-			module.default();
-		});
 });

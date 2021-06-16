@@ -1,7 +1,10 @@
-=focus-icon
-	&__icon
-		&:focus
-			outline: 2px solid $secondary-color
+=focus
+	&:focus, &:focus-visible
+		outline: 2px solid $secondary-color
+			
+=dis-focus
+	&:focus-visible
+		outline: none
 			
 =insta-interact
 	.interact__link
@@ -12,9 +15,6 @@
 			&:before
 				background-image: url("../icons/social/instagram-hover.svg")
 				
-		&:focus
-			outline: 2px solid $secondary-color
-			
 		&:active
 			&:before
 				background-image: url("../icons/social/instagram-active.svg")

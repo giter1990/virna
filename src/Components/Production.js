@@ -1,21 +1,7 @@
 import React, { Component} from "react";
 import { hot } from "react-hot-loader";
-import Blazy from "../../node_modules/blazy/blazy.min.js";
 
 class Production extends React.Component {
-	componentDidMount() {
-		let bLazy = new Blazy({
-			selector: "img, #js-feature-1, #js-feature-2, #js-feature-3",
-			success: element => {
-				setTimeout(() => {
-					if (/^background.+/i.test(element.getAttribute("style"))) {
-						element.removeAttribute("style");
-					}
-				}, 200);
-			}
-		});
-	}
-	
 	render() {
 		return (
 			<section className="production" id="js-production">
@@ -28,7 +14,9 @@ class Production extends React.Component {
 						<div className="production__conditions">
 							<div className="production__discount">
 								Sale
-								<img className="production__arrow b-lazy" data-src="./arrow.svg" src="./tinytrans.gif" height="9" width="30" alt="Arrow" />
+								<a className="production__arrow" href="#">
+									<img className="production__icon b-lazy" data-src="./icons/arrow.svg" src="./tinytrans.gif" height="9" width="30" alt="Arrow" />
+								</a>
 								<span className="production__scale">Up to 50 %</span>
 							</div>
 							<ul className="production__service">

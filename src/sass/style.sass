@@ -2,6 +2,7 @@
 @import "../fonts.css"
 @import "base/variables"
 @import "base/mixins"
+@import "base/animations"
 
 :empty:not(img, source)
 	opacity: .5
@@ -31,6 +32,9 @@ a
 	color: inherit
 	text-decoration: none
 	
+	&:focus, &:focus-visible
+		outline: 2px solid $secondary-color
+	
 .b-lazy
 	max-width: 100%
 	opacity: 0
@@ -41,7 +45,6 @@ a
 	
 @import "blocks/menu"
 @import "blocks/logo"
-@import "blocks/bonum"
 @import "blocks/btn"
 @import "blocks/vert"
 @import "blocks/title"
@@ -65,11 +68,3 @@ a
 @import "media/1367px-above"
 @import "media/1440px-above"
 @import "media/1920px-above"
-
-/* @media (min-device-height: 768px)
-	.screen
-		bottom: 10vh */
-
-/* @media (min-device-height: 960px)
-	.screen
-		bottom: 8vh */

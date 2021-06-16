@@ -1,11 +1,13 @@
 .menu
 	+flex
+	+focus
 	flex-direction: row
 		
 	&__signif
 		display: none
 		
 	&__burger
+		+dis-focus
 		+flex
 		cursor: pointer
 		height: 16px
@@ -25,9 +27,6 @@
 		&:hover
 			.menu__line
 				background: $secondary-color
-			
-		&:focus
-			outline: 2px solid $secondary-color
 			
 		&:active
 			.menu__line

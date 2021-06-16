@@ -1,12 +1,12 @@
 import React, { Component} from "react";
 import { hot } from "react-hot-loader";
-import Blazy from "../../node_modules/blazy/blazy.min.js";
-import "../icons/tinytrans.gif";
-import Burger from "./Burger.js";
-import Phone from "./Phone.js";
-import Interact from "./Interact.js";
-import Language from "./Language.js";
-import Screen from "./Screen.js";
+import loadable from "@loadable/component";
+
+const Burger = loadable(() => import("./Burger.js")),
+	Phone = loadable(() => import("./Phone.js")),
+	Interact = loadable(() => import("./Interact.js")),
+	Language = loadable(() => import("./Language.js")),
+	Screen = loadable(() => import("./Screen.js"));
 
 class Header extends React.Component {
 	constructor(props) {
@@ -18,17 +18,7 @@ class Header extends React.Component {
 	componentDidMount() {
 		let items = document.querySelectorAll("#js-item-1, #js-item-2, #js-item-3, #js-phone"),
 			links = document.querySelectorAll("#js-link-1[disabled], #js-link-2[disabled], #js-link-3[disabled], #js-phone[disabled]"),
-			disableds = [],
-			bLazy = new Blazy({
-				selector: "img, #js-icon-header, #js-item-1, #js-face",
-				success: element => {
-					setTimeout(() => {
-						if (/^background.+/i.test(element.getAttribute("style"))) {
-							element.removeAttribute("style");
-						}
-					}, 200);
-				}
-			});
+			disableds = [];
 			
 		links.forEach((item, i) => {
 			if (item) {
@@ -76,7 +66,7 @@ class Header extends React.Component {
 				<div className="inner">
 					<Burger section="menu menu_header" view="js-burger-header" line1="js-line-header-1" line2="js-line-header-2" line3="js-line-header-3" showed={this.state.isScreenShowed} onChangeBurger={this.toggleBurger} />
 					<a className="logo logo_header" href="index.html">
-						<img className="logo__icon b-lazy" data-src="./logo.svg" id="js-icon-header" src="./tinytrans.gif" height="16" width="120" alt="Logo" />
+						<img className="logo__icon b-lazy" data-src="./icons/logo.svg" src="./tinytrans.gif" height="16" width="120" alt="Logo" />
 					</a>
 					<div className="header__manage">
 						<nav className="header__nav">
@@ -101,7 +91,7 @@ class Header extends React.Component {
 						<div className="header__count">99</div>
 					</div>
 					<a className="header__face" href="#">
-						<img className="header__img b-lazy" id="js-face" data-src="./face.svg" src="./tinytrans.gif" alt="Face" />
+						<img className="header__img b-lazy" data-src="./sprite/face.svg" src="./tinytrans.gif" height="16" width="12" alt="Face" />
 					</a>
 					<Language lang="language language_header" idLang="js-lang-header" arrow="js-arrow-lang-header" list="js-list-header" />
 					{this.state.isScreenShowed ? <Screen section="js-screen-header" li="js-catalog-header" /> : null}

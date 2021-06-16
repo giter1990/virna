@@ -1,20 +1,23 @@
 // postcss-loader: "^5.3.0"
-// "webpack-dev-server": "^3.1.8"
+// webpack-dev-server: "^3.1.8"
 
 const path = require("path"),
 	webpack = require("webpack"),
 	HtmlWebpackPlugin = require('html-webpack-plugin'),
 	HtmlWebpackInlineSourcePlugin = require('html-webpack-inline-source-plugin'),
 	MiniCssExtractPlugin = require("mini-css-extract-plugin"),
-	IconPlugin = require('svg-sprite-webpack-plugin').plugin,
-	iconPlugin = new IconPlugin('icons-[hash].svg'),
 	HtmlWebpackHotPlugin = require('html-webpack-hot-plugin'),
 	htmlHotPlugin = new HtmlWebpackHotPlugin({
 		hot: true
 	}),
 	WebpackMildCompile = require('webpack-mild-compile').Plugin,
-	{ CleanWebpackPlugin } = require('clean-webpack-plugin');
+	{ CleanWebpackPlugin } = require('clean-webpack-plugin'),
+	mixer = require('svg-mixer'),
+	TerserPlugin = require("terser-webpack-plugin"),
+	CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
 	
+mixer(["src/icons/checkmark/**/*.svg", "src/icons/header/**/*.svg", "src/icons/language/**/*.svg", "src/icons/promo-bg/**/*.svg", "src/icons/social/**/*.svg"], { spriteType: "stack", prettify: true }).then(result => result.write("public/sprite.svg"));
+
 module.exports = {
 	entry: "./src/index.js",
 	mode: "development",
@@ -36,14 +39,6 @@ module.exports = {
 				]
 			},
 			{
-				test: /\.html$/i,
-				use: [
-					{
-						loader: "html-loader"
-					}
-				]
-			},
-			{
 				test: /\.s[ac]ss$/i,
 				use: [
 					{
@@ -55,7 +50,7 @@ module.exports = {
 						loader: "postcss-loader",
 						options: {
 							postcssOptions: {
-								plugins: ['autoprefixer']
+								plugins: ["autoprefixer"]
 							},
 							sourceMap: true
 						}
@@ -65,8 +60,7 @@ module.exports = {
 						options: {
 							sassOptions: {
 								file: "./src/sass/style.sass",
-								indentType: "tab",
-								outputStyle: "expanded"
+								indentType: "tab"
 							}
 						}
 					}
@@ -97,7 +91,7 @@ module.exports = {
 				]
 			},
 			{
-				test: /\.(svg|xml|gif)$/i,
+				test: /\.(xml|gif)$/i,
 				use: [
 					{
 						loader: "file-loader",
@@ -109,15 +103,19 @@ module.exports = {
 				]
 			},
 			{
-				test: /\.(png)$/,
 				include: [
-					path.resolve(__dirname, "/")
+					path.resolve(__dirname, "src/icons/checkmark"),
+					path.resolve(__dirname, "src/icons/header"),
+					path.resolve(__dirname, "src/icons/language"),
+					path.resolve(__dirname, "src/icons/promo-bg"),
+					path.resolve(__dirname, "src/icons/social")
 				],
 				use: [
 					{
 						loader: "file-loader",
 						options: {
 							name: "[name].[ext]",
+							outputPath: "./sprite/",
 							esModule: false
 						}
 					}
@@ -125,7 +123,55 @@ module.exports = {
 			},
 			{
 				include: [
-					path.resolve(__dirname, 'src/img'),
+					path.resolve(__dirname, "src/icons/catalog"),
+					path.resolve(__dirname, "src/icons/promo-img"),
+					path.resolve(__dirname, "src/icons/slider")
+				],
+				use: [
+					{
+						loader: "file-loader",
+						options: {
+							name: "[name].[ext]",
+							outputPath: "./icons/",
+							esModule: false
+						}
+					}
+				]
+			},
+			{
+				test: /\.svg$/,
+				include: [
+					path.resolve(__dirname, "tiles")
+				],
+				use: [
+					{
+						loader: "file-loader",
+						options: {
+							name: "[name].[ext]",
+							outputPath: "./tiles/",
+							esModule: false
+						}
+					}
+				]
+			},
+			{
+				include: [
+					path.resolve(__dirname, "favicon")
+				],
+				use: [
+					{
+						loader: "file-loader",
+						options: {
+							name: "[name].[ext]",
+							outputPath: "./favicon/",
+							esModule: false
+						}
+					}
+				]
+			},
+			{
+				include: [
+					path.resolve(__dirname, "src/img"),
 				],
 				use: [
 					{
@@ -135,6 +181,9 @@ module.exports = {
 							esModule: false,
 							outputPath: "img",
 							compress: {
+								mode: "lossless",
+								optipng: false,
+								pngquant: false,
 								webp: true
 							},
 							inline: {
@@ -146,18 +195,32 @@ module.exports = {
 			}
 		]
 	},
+	optimization: {
+		minimize: true,
+		minimizer: [
+			new TerserPlugin({
+				test: /\.js$/,
+				extractComments: false
+			}),
+			new CssMinimizerPlugin({
+				test: /\.css$/
+			})
+		]
+	},
 	node: {
 		fs: 'empty'
 	},
 	resolve: { extensions: ["*", ".js", ".jsx"] },
 	output: {
 		path: path.resolve(__dirname, "./public/"),
-		filename: "bundle.js"
+		filename: "bundle.min.js",
+		chunkFilename: "[id].min.js"
 	},
 	devServer: {
 		open: true,
 		watchContentBase: true,
 		contentBase: path.join(__dirname, "./public/"),
+		compress: true,
 		writeToDisk: (filePath) => {
 			return /\.(html|css|js)$/.test(filePath);
 		},

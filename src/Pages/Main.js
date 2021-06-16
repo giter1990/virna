@@ -1,13 +1,12 @@
 import React, { Component} from "react";
 import { hot } from "react-hot-loader";
 import ReactDOM from "react-dom";
-import Promo from "../Components/Promo.js";
-import Header from "../Components/Header.js";
-import Slider from "../Components/Slider.js";
-import Production from "../Components/Production.js";
+import loadable from "@loadable/component";
 
-let promoControl,
-	header;
+const Promo = loadable(() => import("../Components/Promo.js")),
+	Header = loadable(() => import("../Components/Header.js")),
+	Slider = loadable(() => import("../Components/Slider.js")),
+	Production = loadable(() => import("../Components/Production.js"));
 
 class Main extends React.Component {
 	constructor(props) {
@@ -21,17 +20,16 @@ class Main extends React.Component {
 		document.head.querySelector("[name][content]").content = metaDescr;
 		document.title = "Virna | Главная";
 		
-		promoControl = document.getElementById("js-promo-control");
-		header = document.getElementById("js-header");
-			
-		window.addEventListener("scroll", () => {
-			import("../js/drop-header.js")
-				.then(module => {
-					module.default();
-				});
+		window.addEventListener("scroll", e => {
+			if (document.getElementById("js-promo")) {
+				import("../js/drop-header.js")
+					.then(module => {
+						module.default();
+					});
+			}
 		});
 	}
-	
+		
 	render() {
 		return (
 			<div>
@@ -45,5 +43,4 @@ class Main extends React.Component {
 }
 
 ReactDOM.render(<Main />, document.getElementById("js-container"));
-export { promoControl, header };
 export default hot(module)(Main);

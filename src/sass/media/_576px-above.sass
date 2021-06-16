@@ -26,13 +26,15 @@
 			right: 65px
 			
 	.slider
+		&__wrapper
+			flex-direction: row
+			
+		&__control
+			flex: 1
+			position: static
+			
 		&__transition
 			width: 170px
-			
-		&__info
-			background-position: 20px center
-			padding: 20px 20px 20px 80px
-			width: 55%
 			
 	.production
 		&__discount
@@ -47,3 +49,6 @@
 		&__card
 			&_tile
 				justify-content: space-evenly
+				
+	.tns-outer
+		flex: 1

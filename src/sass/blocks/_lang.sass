@@ -1,8 +1,9 @@
 .language
+	+focus
 	cursor: pointer
 	font: 14px/1.29rem 'Cera-Pro-Regular'
 	position: relative
-	width: 24px
+	width: 25px
 	
 	&_promo
 		margin-left: auto
@@ -18,9 +19,22 @@
 		padding-right: 10px
 	
 	&__pseudo
+		+dis-focus
 		position: relative
-		transition: .5s
+		transition: color .5s
 		z-index: 1
+		
+		&:hover
+			color: $secondary-color
+			
+			.language__arrow
+				background-image: url("../icons/language/arrow-language-hover.svg")
+				
+		&:active
+			color: #d7969e
+			
+			.language__arrow
+				background-image: url("../icons/language/arrow-language-active.svg")
 			
 	&__arrow
 		+pos-abs
@@ -64,46 +78,10 @@
 			color: #d7969e
 			
 	&__select
+		+focus
 		+pos-abs
 		appearance: none
 		background: transparent
 		border: 1px solid transparent
 		color: transparent
 		z-index: -1
-		
-		&:disabled
-			background-image: url("../icons/language/arrow-language-disabled.svg")
-			color: #b7b7b7
-			
-		&:hover
-			background-image: url("../icons/language/arrow-language-hover.svg")
-			color: $secondary-color
-			
-		&:focus
-			outline: 2px solid $secondary-color
-			
-		&:active
-			background-image: url("../icons/language/arrow-language-active.svg")
-			color: #d7969e
-			
-@keyframes rotate-open
-	from
-		top: 40%
-		transform: translateY(-40%)
-		transform: rotate(0deg)
-		
-	to
-		top: 40%
-		transform: translateY(-40%)
-		transform: rotate(180deg)
-		
-@keyframes rotate-close
-	from
-		top: 40%
-		transform: translateY(-40%)
-		transform: rotate(180deg)
-		
-	to
-		top: 40%
-		transform: translateY(-40%)
-		transform: rotate(0deg)

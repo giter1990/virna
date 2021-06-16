@@ -1,27 +1,15 @@
 import React, { Component} from "react";
 import { hot } from "react-hot-loader";
-import Blazy from "../../node_modules/blazy/blazy.min.js";
 import ReactDOM from "react-dom";
-import Main from "../Pages/Main.js";
+import loadable from "@loadable/component";
+
+const Main = loadable(() => import("../Pages/Main.js"));
 
 class Catalog extends React.Component {
 	constructor(props) {
 		super(props);
 		this.showMain = this.showMain.bind(this);
 		this.toggleView = this.toggleView.bind(this);
-	}
-	
-	componentDidMount() {
-		let bLazy = new Blazy({
-			selector: "img, #js-categories, #js-filters",
-			success: element => {
-				setTimeout(() => {
-					if (/^background.+/i.test(element.getAttribute("style"))) {
-						element.removeAttribute("style");
-					}
-				}, 200);
-			}
-		});
 	}
 	
 	showMain(e) {
@@ -78,12 +66,12 @@ class Catalog extends React.Component {
 						<div className="catalog__card catalog__card_tile" id="js-card-1">
 							<div className="catalog__landmark">
 								<div className="vert vert_catalog">Dressess</div>
-								<img className="catalog__arrow b-lazy" data-src="arrow-catalog.svg" src="./tinytrans.gif" height="30" width="9" alt="Down arrow" />
+								<img className="catalog__arrow b-lazy" data-src="./icons/arrow-catalog.svg" src="./tinytrans.gif" height="30" width="9" alt="Down arrow" />
 							</div>
 							<div className="catalog__body">
 								<div className="ux">
 									<button className="ux__purchase">Sale</button>
-									<img className="ux__like b-lazy" data-src="like-catalog.svg" src="./tinytrans.gif" height="19" width="21" alt="Like" />
+									<img className="ux__like b-lazy" data-src="./icons/like-catalog.svg" src="./tinytrans.gif" height="19" width="21" alt="Like" />
 								</div>
 								<picture className="catalog__picture">
 									<source srcSet="img/dresses-360-768.webp, img/dresses-360-768-2x.webp 2x" media="(min-width: 360px) and (max-width: 960px)" type="image/webp"></source>
@@ -112,12 +100,12 @@ class Catalog extends React.Component {
 						<div className="catalog__card catalog__card_tile" id="js-card-2">
 							<div className="catalog__landmark">
 								<div className="vert vert_catalog">Suits</div>
-								<img className="catalog__arrow b-lazy" data-src="arrow-catalog.svg" src="./tinytrans.gif" height="30" width="9" alt="Down arrow" />
+								<img className="catalog__arrow b-lazy" data-src="./icons/arrow-catalog.svg" src="./tinytrans.gif" height="30" width="9" alt="Down arrow" />
 							</div>
 							<div className="catalog__body">
 								<div className="ux">
 									<button className="ux__purchase ux__purchase_new">New</button>
-									<img className="ux__like b-lazy" data-src="like-catalog.svg" src="./tinytrans.gif" height="19" width="21" alt="Like" />
+									<img className="ux__like b-lazy" data-src="./icons/like-catalog.svg" src="./tinytrans.gif" height="19" width="21" alt="Like" />
 								</div>
 								<picture className="catalog__picture">
 									<source srcSet="img/production-360.webp, img/production-360-2x.webp 2x" media="(min-width: 360px) and (max-width: 960px)" type="image/webp"></source>
@@ -144,12 +132,12 @@ class Catalog extends React.Component {
 						<div className="catalog__card catalog__card_tile" id="js-card-3">
 							<div className="catalog__landmark">
 								<div className="vert vert_catalog">Outwear</div>
-								<img className="catalog__arrow b-lazy" data-src="arrow-catalog.svg" src="./tinytrans.gif" height="30" width="9" alt="Down arrow" />
+								<img className="catalog__arrow b-lazy" data-src="./icons/arrow-catalog.svg" src="./tinytrans.gif" height="30" width="9" alt="Down arrow" />
 							</div>
 							<div className="catalog__body">
 								<div className="ux">
 									<button className="ux__purchase">Sale</button>
-									<img className="ux__like b-lazy" data-src="like-catalog.svg" src="./tinytrans.gif" height="19" width="21" alt="Like" />
+									<img className="ux__like b-lazy" data-src="./icons/like-catalog.svg" src="./tinytrans.gif" height="19" width="21" alt="Like" />
 								</div>
 								<picture className="catalog__picture">
 									<source srcSet="img/outwear-360-768.webp, img/outwear-360-768-2x.webp 2x" media="(min-width: 360px) and (max-width: 960px)" type="image/webp"></source>
@@ -176,12 +164,12 @@ class Catalog extends React.Component {
 						<div className="catalog__card catalog__card_tile" id="js-card-4">
 							<div className="catalog__landmark">
 								<div className="vert vert_catalog">Costumes</div>
-								<img className="catalog__arrow b-lazy" data-src="arrow-catalog.svg" src="./tinytrans.gif" height="30" width="9" alt="Down arrow" />
+								<img className="catalog__arrow b-lazy" data-src="./icons/arrow-catalog.svg" src="./tinytrans.gif" height="30" width="9" alt="Down arrow" />
 							</div>
 							<div className="catalog__body">
 								<div className="ux">
 									<button className="ux__purchase ux__purchase_new">New</button>
-									<img className="ux__like b-lazy" data-src="like-catalog.svg" src="./tinytrans.gif" height="19" width="21" alt="Like" />
+									<img className="ux__like b-lazy" data-src="./icons/like-catalog.svg" src="./tinytrans.gif" height="19" width="21" alt="Like" />
 								</div>
 								<picture className="catalog__picture">
 									<source srcSet="img/costumes-360-768.webp, img/costumes-360-768-2x.webp 2x" media="(min-width: 360px) and (max-width: 960px)" type="image/webp"></source>

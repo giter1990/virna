@@ -1,29 +1,34 @@
 .slider
 	&__wrapper
 		+flex
+		height: calc(100vh - 46px)
+		margin-bottom: 40px
+		position: relative
 		
-	&__picture
-		display: none
-		
-	&__carousel
-		+flex
-		background: url("../img/main/slider/collection-360-768.jpg") no-repeat center/auto 100%, linear-gradient(to bottom, #e7e0d8, #f1eae2, #e5ded8)
-		margin-bottom: 41px
-		min-height: 650px
-		padding: 0 20px
+	&__img
+		height: calc(100vh - 46px)
+		min-height: inherit
+		object-fit: cover
+		object-position: top
+		padding: 1px
+		width: inherit
 		
 	&__control
-		margin: auto 0 65px
+		+flex
+		+pos-abs
+		height: 100%
+		padding: 0 20px
+		width: 100%
 		
 	&__title
 		font: 40px/3.29rem 'Cera-Pro-Bold'
-		margin: 0
+		margin: calc(20.625vh - 46px) 0 0
 		text-transform: uppercase
 		
 	&__absence
 		display: block
 		font: 20px/1.71rem 'Cera-Pro-Bold'
-		margin-top: 20px
+		margin-top: 3.125vh
 		text-transform: lowercase
 		
 	&__transition
@@ -37,18 +42,20 @@
 			transform: scale(-1, 1)
 			
 		&:hover
-			background-image: url("../icons/slider/arrow-hover.svg")
+			.slider__icon
+				background-image: url("../icons/slider/arrow-hover.svg")
 			
 		&:focus
 			outline: 2px solid $secondary-color
 			
 		&:active
-			background-image: url("../icons/slider/arrow-active.svg")
+			.slider__icon
+				background-image: url("../icons/slider/arrow-active.svg")
 		
 	&__info
 		background: $btn-color url("../img/main/notice.jpg") no-repeat 15px center
 		box-shadow: 0 9px 10px 0 #ededed
-		margin-top: 90px
+		margin: 13vh 0 0
 		padding: 15px 15px 15px 75px
 		width: 90%
 		
@@ -67,10 +74,22 @@
 		margin-left: auto
 		
 		&:hover
-			background-image: url("../icons/slider/arrow-notice-hover.svg")
+			.slider__details
+				background-image: url("../icons/slider/arrow-notice-hover.svg")
 			
 		&:focus
 			outline: 2px solid $secondary-color
 			
 		&:active
-			background-image: url("../icons/slider/arrow-notice-active.svg")
+			.slider__details
+				background-image: url("../icons/slider/arrow-notice-active.svg")
+
+.tns-inner
+	overflow: hidden
+				
+.tns-slider
+	height: calc(100vh - 46px)
+	overflow: hidden
+	
+.tns-visually-hidden
+	display: none

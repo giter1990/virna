@@ -51,7 +51,7 @@ class Language extends React.Component {
 			<div className={lang} id={idLang} onClick={this.onListActive}>
 				<div className="language__pseudo" onChange={this.onItemActive}>
 					{this.state.lang}
-					<span className="language__arrow" id={arrow}>Arrow</span>
+					<span className="language__arrow b-lazy" id={arrow} data-src="./tinytrans.gif">Arrow</span>
 				</div>
 				<select className="language__select">
 					<option className="language__choice" value="ru">ru</option>

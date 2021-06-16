@@ -1,18 +1,17 @@
 import React, { Component} from "react";
 import { hot } from "react-hot-loader";
-import Header from "../Components/Header.js";
-import Catalog from "../Components/Catalog.js";
-import Production from "../Components/Production.js";
+import loadable from "@loadable/component";
+
+const Header = loadable(() => import("../Components/Header.js")),
+	Catalog = loadable(() => import("../Components/Catalog.js")),
+	Production = loadable(() => import("../Components/Production.js"));
 
 class Sample extends React.Component {
 	constructor(props) {
 		super(props);
-		this.state = {
-			header: document.getElementById("js-header")
-		}
 	}
 	
-	componentDidMount(){
+	componentDidMount() {
 		let metaDescr = document.head.querySelector("[name][content]").content;
 		
 		metaDescr = "Virna - бренд украинской одежды с каталогом товаров";
@@ -23,7 +22,7 @@ class Sample extends React.Component {
 	render() {
 		return (
 			<div>
-				<Header value={this.state.header} />
+				<Header value={this.props.value} />
 				<Catalog />
 				<Production />
 			</div>
